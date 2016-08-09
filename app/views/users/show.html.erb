@@ -1,0 +1,15 @@
+<h2>My Goals for <%=@user.username %></h2>
+
+<%=button_to "New Goal", new_goal_url, method: :get %>
+
+<ul>
+  <% @user.goals.each do |goal| %>
+  <li>
+    <%=link_to goal.description, goal_url(goal) %>
+    <br />
+    <%= goal.progress %>
+    <br />
+    <br />
+  </li>
+  <%end%>
+</ul>

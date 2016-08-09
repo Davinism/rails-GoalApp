@@ -1,0 +1,22 @@
+<h2>New Goal</h2>
+
+<form action = "<%=goals_url%>" method="post" >
+  <%= auth %>
+  <label>Description
+    <textarea name="goal[description]"></textarea>
+  </label>
+
+  <label>Privacy Setting:
+    <input type="radio" name="goal[privacy]" value="private" id="Private" />Private
+    <input type="radio" name="goal[privacy]" value="public" id="Public" />Public
+  </label>
+
+  <label>Progress
+    <input type="number" name="goal[progress]" min="0" max="100" />
+  </label>
+
+  <input type="hidden" name="goal[user_id]" value="<%= current_user.id %>" />
+
+  <input type="submit" value="Add Goal" />
+
+</form>
